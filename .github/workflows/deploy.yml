@@ -1,0 +1,28 @@
+name: Build and Deploy
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    name: Build UI
+    runs-on: ubuntu-latest
+    permissions: 
+        id-token: write
+        contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+
+      # - name: Set credentials
+      #   uses: aws-actions/configure-aws-credentials@v1
+      #   with:
+      #     role-to-assume: ${{ secrets.IAMROLE_GITHUB }}
+      #     role-session-name: GitHub-Action-Role
+      #     aws-region: ${{ env.AWS_REGION }}
+
+      # - name: Set up node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #       node-version: 22.11.0
